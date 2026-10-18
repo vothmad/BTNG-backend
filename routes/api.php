@@ -10,8 +10,14 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/souls', [SoulController::class, 'store']);
 
-Route::get('/reapers/kill-count', [SoulController::class, 'killCount']);
+Route::get('/souls/kill-count', [SoulController::class, 'killCount']);
 
 Route::get('/souls/debug', function() {
     return response()->json(\App\Models\Soul::all());
 });
+
+Route::put('/souls/{soul}', [SoulController::class, 'update']);
+Route::delete('/souls/{soul}', [SoulController::class, 'destroy']);
+
+Route::post('/souls', [SoulController::class, 'store']);
+Route::post('/souls', [SoulController::class, 'store']);
